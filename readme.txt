@@ -81,6 +81,13 @@ nome
     ORDER BY students.surname ASC, students.name ASC;
 
 5. Selezionare tutti i corsi di laurea con i relativi corsi e insegnanti
+-   SELECT degrees.name AS degree_name, courses.name AS course_name, teachers.name AS teacher_name, teachers.surname AS teacher_surname
+    FROM degrees
+    LEFT JOIN courses ON degrees.id = courses.degree_id
+    LEFT JOIN course_teacher ON courses.id = course_teacher.course_id
+    LEFT JOIN teachers ON course_teacher.teacher_id = teachers.id
+    ORDER BY degree_name, course_name, teacher_surname, teacher_name;
+
 6. Selezionare tutti i docenti che insegnano nel Dipartimento di
 Matematica (54)
 7. BONUS: Selezionare per ogni studente il numero di tentativi sostenuti
